@@ -38,7 +38,7 @@ class FusionEKF {
   // previous timestamp
   long long previous_timestamp_;
 
-  // tool object used to compute Jacobian and RMSE
+  // tool object used to compute Jacobian, RMSE and convert cortesian cordinates to polar
   Tools tools;
   Eigen::MatrixXd R_laser_;
   Eigen::MatrixXd R_radar_;

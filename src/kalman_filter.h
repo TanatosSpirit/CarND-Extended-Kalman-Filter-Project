@@ -2,6 +2,7 @@
 #define KALMAN_FILTER_H_
 
 #include "Eigen/Dense"
+#include "tools.h"
 
 class KalmanFilter {
  public:
@@ -45,6 +46,9 @@ class KalmanFilter {
    * @param z The measurement at k+1
    */
   void UpdateEKF(const Eigen::VectorXd &z);
+  
+  // tool object used to compute Jacobian, RMSE and convert cortesian cordinates to polar
+  Tools tools;
 
   // state vector
   Eigen::VectorXd x_;
