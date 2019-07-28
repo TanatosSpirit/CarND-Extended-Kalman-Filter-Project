@@ -32,6 +32,11 @@ class Tools {
    */
   Eigen::VectorXd Cart2Polar(const Eigen::VectorXd& v_cart);
 
+  /**
+   * Convert radar from polar to cartesian coordinates.
+   */
+  Eigen::VectorXd Polar2Cart(const Eigen::VectorXd &polar);
+
 };
 
 #endif  // TOOLS_H_

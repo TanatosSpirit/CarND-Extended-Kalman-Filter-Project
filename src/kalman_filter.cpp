@@ -52,6 +52,11 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   VectorXd x_polar = tools.Cart2Polar(x_);
 
   VectorXd y = z - x_polar;
+
+  // Normalize phi to [-pi, pi]
+  while (y(1) > M_PI)  y(1) -= 2.0 * M_PI;
+  while (y(1) < -M_PI) y(1) += 2.0 * M_PI;
+
   MatrixXd S = H_ * P_ * H_.transpose() + R_;
   MatrixXd K =  P_ * H_.transpose() * S.inverse();
 
